@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ══════════════════════════════════════════════════════
+       FRAMELAB — Production HTML
+       Cinematic Luxury Edit House
+  ══════════════════════════════════════════════════════ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Framelab — Award-winning post-production studio specialising in brand films, commercials, and documentary edits.">
+  <meta name="theme-color" content="#07070A">
+
+  <title>FRAMELAB — Cinematic Edit House</title>
+
+  <!-- Preconnect for faster font load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Only load the weights/styles actually used -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@400&family=Syne:wght@800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- GSAP + ScrollTrigger (loaded synchronously — needed before DOMContentLoaded) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="framelab.css">
+</head>
+
+<body>
+  <!-- ── AMBIENT BLOBS ─────────────────────────────────────── -->
+  <div class="blobs" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <!-- ── CUSTOM CURSOR (hidden via CSS on mobile) ──────────── -->
+  <div class="cur-dot"  id="curDot"  aria-hidden="true" style="display:none"></div>
+  <div class="cur-ring" id="curRing" aria-hidden="true" style="display:none"></div>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════════════════ -->
+  <header>
+    <nav class="site-nav" id="mainNav" aria-label="Main navigation">
+      <a href="#home" class="logo" aria-label="Framelab — home">
+        FRAME<em>LAB</em>
+      </a>
+
+      <!-- Mobile toggle -->
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-expanded="false"
+        aria-controls="navLinks"
+        aria-label="Toggle navigation menu"
+      >&#9776;</button>
+
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#reel">Reel</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="nav-cta" aria-label="Start a project with Framelab">
+        Start a Project
+      </a>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════ -->
+  <main>
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="hero-ambient" aria-hidden="true"></div>
+
+      <p class="hero-eyebrow" id="heroEyebrow" aria-label="Est. 2019 — Award-winning edit house">
+        <span class="line-deco" aria-hidden="true"></span>
+        Est. 2019 · Award-Winning Edit House
+      </p>
+
+      <h1 class="hero-title" id="heroTitle">
+        <span class="clip" id="hl1"><span>We craft</span></span>
+        <span class="clip" id="hl2"><span><em>cinematic</em></span></span>
+        <span class="clip" id="hl3"><span>narratives.</span></span>
+      </h1>
+
+      <div class="hero-bottom" id="heroBottom">
+        <p class="hero-desc">
+          Post-production studio specialising in brand films, commercials,
+          and documentary edits that move people to action.
+        </p>
+        <div class="hero-stats" role="list" aria-label="Studio statistics">
+          <div class="stat" role="listitem">
+            <span class="stat-num" data-count="340" data-suffix="+" aria-label="340 plus projects">340+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat" role="listitem">
+            <span class="stat-num" data-count="98" data-suffix="%" aria-label="98 percent client retention">98%</span>
+            <span class="stat-label">Retained</span>
+          </div>
+          <div class="stat" role="listitem">
+            <span class="stat-num" data-count="12" data-suffix="yr" aria-label="12 years experience">12yr</span>
+            <span class="stat-label">Experience</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TICKER ─────────────────────────────────────────── -->
+    <div class="ticker" aria-label="Services ticker" role="marquee" aria-live="off">
+      <div class="ticker-track" aria-hidden="true">
+        <span class="ticker-item"><span class="tdot"></span>Brand Films</span>
+        <span class="ticker-item"><span class="tdot"></span>Commercial Edits</span>
+        <span class="ticker-item"><span class="tdot"></span>Documentary</span>
+        <span class="ticker-item"><span class="tdot"></span>Motion Graphics</span>
+        <span class="ticker-item"><span class="tdot"></span>Color Grading</span>
+        <span class="ticker-item"><span class="tdot"></span>Sound Design</span>
+        <span class="ticker-item"><span class="tdot"></span>VFX Integration</span>
+        <span class="ticker-item"><span class="tdot"></span>Social Content</span>
+        <!-- Duplicate set for seamless loop -->
+        <span class="ticker-item"><span class="tdot"></span>Brand Films</span>
+        <span class="ticker-item"><span class="tdot"></span>Commercial Edits</span>
+        <span class="ticker-item"><span class="tdot"></span>Documentary</span>
+        <span class="ticker-item"><span class="tdot"></span>Motion Graphics</span>
+        <span class="ticker-item"><span class="tdot"></span>Color Grading</span>
+        <span class="ticker-item"><span class="tdot"></span>Sound Design</span>
+        <span class="ticker-item"><span class="tdot"></span>VFX Integration</span>
+        <span class="ticker-item"><span class="tdot"></span>Social Content</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════
+         3D SHOWREEL
+    ══════════════════════════════════════════════════════ -->
+    <section class="reel-section" id="reel" aria-labelledby="reelHeading">
+      <div class="reveal">
+        <p class="sec-tag" aria-hidden="true">Showreel 2024</p>
+        <h2 class="sec-title" id="reelHeading">Watch Our <em>Work</em></h2>
+        <p class="reel-intro-text">
+          A curated selection of recent film, motion, and brand edits.
+        </p>
+      </div>
+
+      <!-- 3D Stage (perspective container) -->
+      <div class="reel-stage reveal d1" id="reelStage" aria-label="Interactive 3D showreel preview">
+        <!-- Drop shadow (separate GPU layer) -->
+        <div class="reel-shadow" id="reelShadow" aria-hidden="true"></div>
+
+        <!-- Floating depth decorators (parallax) -->
+        <div class="depth-dec dd1" id="dd1" aria-hidden="true"></div>
+        <div class="depth-dec dd2" id="dd2" aria-hidden="true"></div>
+        <div class="depth-dec dd3" id="dd3" aria-hidden="true">SHOWREEL · 2024</div>
+
+        <!-- The interactive tilting card -->
+        <div
+          class="reel-card"
+          id="reelCard"
+          role="img"
+          aria-label="Framelab 2024 showreel preview — press Enter or Space to play"
+          tabindex="0"
+        >
+          <!-- Film interior atmosphere -->
+          <div class="reel-inner" aria-hidden="true">
+            <div class="reel-cine-bg"></div>
+            <div class="reel-scanlines"></div>
+          </div>
+
+          <!-- Specular glare (JS-driven) -->
+          <div class="reel-glare" id="reelGlare" aria-hidden="true"></div>
+
+          <!-- Edge vignette -->
+          <div class="reel-vignette" aria-hidden="true"></div>
+
+          <!-- Film corner brackets -->
+          <div class="bracket tl" aria-hidden="true"></div>
+          <div class="bracket tr" aria-hidden="true"></div>
+          <div class="bracket bl" aria-hidden="true"></div>
+          <div class="bracket br" aria-hidden="true"></div>
+
+          <!-- Format badge -->
+          <span class="reel-badge" aria-label="Format: 4K DCI-P3">4K · DCI-P3</span>
+
+          <!-- Play button — real <button> for a11y -->
+          <div class="reel-play-wrap" aria-hidden="true">
+            <button
+              class="play-orb"
+              id="playOrb"
+              aria-label="Play Framelab showreel"
+              tabindex="-1"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <polygon points="8,4 20,12 8,20" fill="rgba(212,180,131,0.9)"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Metadata overlay -->
+          <div class="reel-meta" aria-hidden="true">
+            <div>
+              <p class="reel-meta-title">Framelab Showreel</p>
+              <p class="reel-meta-sub">Motion · Brand · Film · Documentary · 2024</p>
+            </div>
+            <span class="reel-meta-dur">04:18</span>
+          </div>
+        </div><!-- /.reel-card -->
+      </div><!-- /.reel-stage -->
+
+      <!-- Thumbnail strip — real <button> elements -->
+      <div class="reel-thumbs reveal d2" role="list" aria-label="Clip thumbnails">
+        <button class="r-thumb rt1" role="listitem" aria-label="Play clip 1: Brand film">
+          <div class="ri" aria-hidden="true">
+            <div class="r-thumb-play">
+              <svg width="7" height="7" viewBox="0 0 7 7" aria-hidden="true" focusable="false">
+                <polygon points="1.5,1 6,3.5 1.5,6" fill="rgba(255,255,255,0.55)"/>
+              </svg>
+            </div>
+          </div>
+        </button>
+        <button class="r-thumb rt2" role="listitem" aria-label="Play clip 2: Documentary">
+          <div class="ri" aria-hidden="true">
+            <div class="r-thumb-play">
+              <svg width="7" height="7" viewBox="0 0 7 7" aria-hidden="true" focusable="false">
+                <polygon points="1.5,1 6,3.5 1.5,6" fill="rgba(255,255,255,0.55)"/>
+              </svg>
+            </div>
+          </div>
+        </button>
+        <button class="r-thumb rt3" role="listitem" aria-label="Play clip 3: Commercial">
+          <div class="ri" aria-hidden="true">
+            <div class="r-thumb-play">
+              <svg width="7" height="7" viewBox="0 0 7 7" aria-hidden="true" focusable="false">
+                <polygon points="1.5,1 6,3.5 1.5,6" fill="rgba(255,255,255,0.55)"/>
+              </svg>
+            </div>
+          </div>
+        </button>
+        <button class="r-thumb rt4" role="listitem" aria-label="Play clip 4: Motion graphics">
+          <div class="ri" aria-hidden="true">
+            <div class="r-thumb-play">
+              <svg width="7" height="7" viewBox="0 0 7 7" aria-hidden="true" focusable="false">
+                <polygon points="1.5,1 6,3.5 1.5,6" fill="rgba(255,255,255,0.55)"/>
+              </svg>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <p class="reel-hint reveal d3" aria-hidden="true">
+        <span class="hint-ic">↕</span>
+        Move your cursor across the reel to feel the depth
+      </p>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         WORK
+    ══════════════════════════════════════════════════════ -->
+    <section class="work-section" id="work" aria-labelledby="workHeading">
+      <div class="section-head reveal">
+        <div>
+          <p class="sec-tag" aria-hidden="true">Selected Work</p>
+          <h2 class="sec-title" id="workHeading">Recent<br><em>projects</em></h2>
+        </div>
+        <a href="#" class="sec-link" aria-label="View all projects">
+          View all
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="proj-grid">
+        <!-- Wide featured card -->
+        <article
+          class="proj-card wide reveal"
+          tabindex="0"
+          aria-label="Project: Horizon Brand Anthem, 2024. Brand Film, Color Grade, Motion GFX."
+          role="button"
+        >
+          <div class="proj-visual">
+            <div class="proj-vis-inner">
+              <div class="va v1" role="img" aria-label="Horizon brand film preview"></div>
+            </div>
+            <span class="vbadge" aria-label="Format: 4K Commercial">4K · Commercial</span>
+            <span class="dbadge" aria-label="Duration: 2 minutes 47 seconds">2:47</span>
+            <div class="proj-overlay" aria-hidden="true">
+              <div class="proj-play-c">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <polygon points="4,2 14,8 4,14" fill="#D4B483"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="proj-info">
+            <div>
+              <h3 class="proj-name">Horizon — Brand Anthem</h3>
+              <div class="proj-tags" aria-label="Tags">
+                <span class="tag">Brand Film</span>
+                <span class="tag">Color Grade</span>
+                <span class="tag">Motion GFX</span>
+              </div>
+            </div>
+            <time class="proj-yr" datetime="2024">2024</time>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article
+          class="proj-card reveal d1"
+          tabindex="0"
+          aria-label="Project: Depths Documentary, 2024. Documentary, Sound Design."
+          role="button"
+        >
+          <div class="proj-visual">
+            <div class="proj-vis-inner">
+              <div class="va v2" role="img" aria-label="Depths documentary preview"></div>
+            </div>
+            <span class="vbadge" aria-label="Format: DCI Documentary">DCI · Documentary</span>
+            <span class="dbadge" aria-label="Duration: 18 minutes 12 seconds">18:12</span>
+            <div class="proj-overlay" aria-hidden="true">
+              <div class="proj-play-c">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <polygon points="4,2 14,8 4,14" fill="#D4B483"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="proj-info">
+            <div>
+              <h3 class="proj-name">Depths — Documentary</h3>
+              <div class="proj-tags">
+                <span class="tag">Documentary</span>
+                <span class="tag">Sound Design</span>
+              </div>
+            </div>
+            <time class="proj-yr" datetime="2024">2024</time>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article
+          class="proj-card reveal d2"
+          tabindex="0"
+          aria-label="Project: Aurum Product Launch, 2023. Commercial, VFX."
+          role="button"
+        >
+          <div class="proj-visual">
+            <div class="proj-vis-inner">
+              <div class="va v3" role="img" aria-label="Aurum product campaign preview"></div>
+            </div>
+            <span class="vbadge" aria-label="Format: 4K Campaign">4K · Campaign</span>
+            <span class="dbadge" aria-label="Duration: 60 seconds">0:60</span>
+            <div class="proj-overlay" aria-hidden="true">
+              <div class="proj-play-c">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <polygon points="4,2 14,8 4,14" fill="#D4B483"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="proj-info">
+            <div>
+              <h3 class="proj-name">Aurum — Product Launch</h3>
+              <div class="proj-tags">
+                <span class="tag">Commercial</span>
+                <span class="tag">VFX</span>
+              </div>
+            </div>
+            <time class="proj-yr" datetime="2023">2023</time>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         SERVICES
+    ══════════════════════════════════════════════════════ -->
+    <section class="services-section" id="services" aria-labelledby="servicesHeading">
+      <div class="section-head reveal">
+        <div>
+          <p class="sec-tag" aria-hidden="true">What We Do</p>
+          <h2 class="sec-title" id="servicesHeading">Our<br><em>services</em></h2>
+        </div>
+      </div>
+
+      <div class="svc-grid">
+        <article class="svc-card reveal">
+          <p class="svc-num" aria-hidden="true">01</p>
+          <h3 class="svc-name">Brand Film<br>Production</h3>
+          <p class="svc-desc">Narrative-first storytelling for brands that have something real to say. We build emotional arcs that convert viewers into advocates.</p>
+          <div class="svc-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 12L12 2M12 2H5M12 2v7" stroke="#D4B483" stroke-width="1"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="svc-card reveal d1">
+          <p class="svc-num" aria-hidden="true">02</p>
+          <h3 class="svc-name">Commercial<br>Editing</h3>
+          <p class="svc-desc">Precision-cut spots for broadcast and digital. Every frame earns its place. Every transition serves the message.</p>
+          <div class="svc-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 12L12 2M12 2H5M12 2v7" stroke="#D4B483" stroke-width="1"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="svc-card reveal">
+          <p class="svc-num" aria-hidden="true">03</p>
+          <h3 class="svc-name">Color Grading<br>&amp; Finishing</h3>
+          <p class="svc-desc">Cinematic color science that gives your footage a signature look. DaVinci Resolve-certified colorists, film-grade results.</p>
+          <div class="svc-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 12L12 2M12 2H5M12 2v7" stroke="#D4B483" stroke-width="1"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="svc-card reveal d1">
+          <p class="svc-num" aria-hidden="true">04</p>
+          <h3 class="svc-name">Motion Graphics<br>&amp; VFX</h3>
+          <p class="svc-desc">Custom motion design and visual effects that integrate seamlessly with live footage. After Effects &amp; Cinema 4D workflows.</p>
+          <div class="svc-arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 12L12 2M12 2H5M12 2v7" stroke="#D4B483" stroke-width="1"/>
+            </svg>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         PROCESS
+    ══════════════════════════════════════════════════════ -->
+    <section class="process-section" id="process" aria-labelledby="processHeading">
+      <div class="section-head reveal">
+        <div>
+          <p class="sec-tag" aria-hidden="true">How We Work</p>
+          <h2 class="sec-title" id="processHeading">The<br><em>process</em></h2>
+        </div>
+      </div>
+
+      <ol class="process-list" aria-label="Production process steps">
+        <li class="proc-item reveal">
+          <span class="proc-num" aria-hidden="true">01</span>
+          <div>
+            <h3 class="proc-name">Discovery</h3>
+            <p class="proc-week">Week 1</p>
+          </div>
+          <p class="proc-desc">We spend time understanding your brand, audience, and what the piece needs to achieve. Briefs, mood boards, reference edits — nothing starts until we're aligned.</p>
+        </li>
+        <li class="proc-item reveal">
+          <span class="proc-num" aria-hidden="true">02</span>
+          <div>
+            <h3 class="proc-name">Assembly Edit</h3>
+            <p class="proc-week">Week 2</p>
+          </div>
+          <p class="proc-desc">Raw footage becomes a structured narrative. Offline edit with temp grade and music so you can feel the rhythm and pacing before we commit to the fine cut.</p>
+        </li>
+        <li class="proc-item reveal">
+          <span class="proc-num" aria-hidden="true">03</span>
+          <div>
+            <h3 class="proc-name">Fine Cut &amp; Refine</h3>
+            <p class="proc-week">Week 3</p>
+          </div>
+          <p class="proc-desc">Two rounds of revisions on picture lock. Motion graphics, sound design, and VFX integrated. Every detail scrutinised frame by frame.</p>
+        </li>
+        <li class="proc-item reveal">
+          <span class="proc-num" aria-hidden="true">04</span>
+          <div>
+            <h3 class="proc-name">Delivery</h3>
+            <p class="proc-week">Week 4</p>
+          </div>
+          <p class="proc-desc">Final color grade, audio mix, and master export in all required formats. Broadcast specs, social cuts, and archival masters — on time, every time.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         TESTIMONIALS
+    ══════════════════════════════════════════════════════ -->
+    <section class="testimonials-section" aria-labelledby="testiHeading">
+      <div class="section-head reveal">
+        <div>
+          <p class="sec-tag" aria-hidden="true">Client Words</p>
+          <h2 class="sec-title" id="testiHeading">What they<br><em>say</em></h2>
+        </div>
+      </div>
+
+      <!-- Pause on focus/hover is handled in CSS via :focus-within -->
+      <div class="testi-track" aria-label="Client testimonials" aria-live="off">
+        <blockquote class="testi-card">
+          <p class="testi-quote">Framelab elevated our launch film beyond anything we'd imagined. The pacing, the color, the emotion — it's a benchmark piece for us now.</p>
+          <footer class="testi-author">
+            <div class="testi-avatar" aria-hidden="true">A</div>
+            <div>
+              <cite class="testi-name">Alex Moreau</cite>
+              <p class="testi-role">CMO — Horizon Collective</p>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="testi-card">
+          <p class="testi-quote">Three agencies quoted us. Framelab was the only one that came back with a creative brief that showed they actually understood what we were trying to say.</p>
+          <footer class="testi-author">
+            <div class="testi-avatar" aria-hidden="true">S</div>
+            <div>
+              <cite class="testi-name">Sophie Tran</cite>
+              <p class="testi-role">Creative Director — Studio Aurum</p>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="testi-card">
+          <p class="testi-quote">The turnaround was impossibly fast and the quality was impossibly high. Our documentary screened at two festivals within six months of delivery.</p>
+          <footer class="testi-author">
+            <div class="testi-avatar" aria-hidden="true">R</div>
+            <div>
+              <cite class="testi-name">Rafael Costa</cite>
+              <p class="testi-role">Director — Depths Film</p>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="testi-card">
+          <p class="testi-quote">I've worked with edit houses on four continents. Framelab's attention to the emotional arc of a cut is simply on another level.</p>
+          <footer class="testi-author">
+            <div class="testi-avatar" aria-hidden="true">M</div>
+            <div>
+              <cite class="testi-name">Maya Okafor</cite>
+              <p class="testi-role">Executive Producer — Meridian Films</p>
+            </div>
+          </footer>
+        </blockquote>
+
+        <!-- Duplicate set for seamless infinite scroll -->
+        <blockquote class="testi-card" aria-hidden="true">
+          <p class="testi-quote">Framelab elevated our launch film beyond anything we'd imagined. The pacing, the color, the emotion — it's a benchmark piece for us now.</p>
+          <footer class="testi-author"><div class="testi-avatar">A</div><div><cite class="testi-name">Alex Moreau</cite><p class="testi-role">CMO — Horizon Collective</p></div></footer>
+        </blockquote>
+        <blockquote class="testi-card" aria-hidden="true">
+          <p class="testi-quote">Three agencies quoted us. Framelab was the only one that came back with a creative brief that showed they actually understood what we were trying to say.</p>
+          <footer class="testi-author"><div class="testi-avatar">S</div><div><cite class="testi-name">Sophie Tran</cite><p class="testi-role">Creative Director — Studio Aurum</p></div></footer>
+        </blockquote>
+        <blockquote class="testi-card" aria-hidden="true">
+          <p class="testi-quote">The turnaround was impossibly fast and the quality was impossibly high. Our documentary screened at two festivals within six months of delivery.</p>
+          <footer class="testi-author"><div class="testi-avatar">R</div><div><cite class="testi-name">Rafael Costa</cite><p class="testi-role">Director — Depths Film</p></div></footer>
+        </blockquote>
+        <blockquote class="testi-card" aria-hidden="true">
+          <p class="testi-quote">I've worked with edit houses on four continents. Framelab's attention to the emotional arc of a cut is simply on another level.</p>
+          <footer class="testi-author"><div class="testi-avatar">M</div><div><cite class="testi-name">Maya Okafor</cite><p class="testi-role">Executive Producer — Meridian Films</p></div></footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         CTA / CONTACT
+    ══════════════════════════════════════════════════════ -->
+    <section class="cta-section" id="contact" aria-labelledby="contactHeading">
+      <div class="cta-bg" aria-hidden="true"></div>
+
+      <span class="cta-eyebrow reveal" aria-hidden="true">Ready to collaborate?</span>
+
+      <h2 class="cta-title reveal d1" id="contactHeading">
+        Let's make<br>something <em>great.</em>
+      </h2>
+
+      <div class="btn-row reveal d2">
+        <a href="mailto:hello@framelab.co" class="btn btn-g" aria-label="Email us to start a project">
+          Start a Project
+        </a>
+        <a href="#work" class="btn btn-o" aria-label="Scroll to view our work">
+          View Work
+        </a>
+      </div>
+
+      <ul class="clients-row reveal d3" aria-label="Selected clients" role="list">
+        <li class="cn" role="listitem">Horizon</li>
+        <li class="cdiv" role="separator" aria-hidden="true"></li>
+        <li class="cn" role="listitem">Aurum Studio</li>
+        <li class="cdiv" role="separator" aria-hidden="true"></li>
+        <li class="cn" role="listitem">Meridian Films</li>
+        <li class="cdiv" role="separator" aria-hidden="true"></li>
+        <li class="cn" role="listitem">Vela Creative</li>
+        <li class="cdiv" role="separator" aria-hidden="true"></li>
+        <li class="cn" role="listitem">Depths</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer>
+    <small class="foot-copy">© 2025 Framelab. All rights reserved.</small>
+    <nav class="foot-links" aria-label="Social and contact links">
+      <a href="https://instagram.com" rel="noopener noreferrer" target="_blank" aria-label="Framelab on Instagram">Instagram</a>
+      <a href="https://vimeo.com"     rel="noopener noreferrer" target="_blank" aria-label="Framelab on Vimeo">Vimeo</a>
+      <a href="https://linkedin.com"  rel="noopener noreferrer" target="_blank" aria-label="Framelab on LinkedIn">LinkedIn</a>
+      <a href="mailto:hello@framelab.co" aria-label="Email Framelab">hello@framelab.co</a>
+    </nav>
+  </footer>
+
+  <!-- Site JS — defer keeps it non-render-blocking -->
+  <script src="framelab.js" defer></script>
+</body>
+</html>
